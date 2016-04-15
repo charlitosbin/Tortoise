@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tortoise", "Tortoise\Tortoise.csproj", "{A43F7CFC-1492-41B3-8399-2E29C84B6007}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|iPhoneSimulator = Debug|iPhoneSimulator
+		Release|iPhone = Release|iPhone
+		Release|iPhoneSimulator = Release|iPhoneSimulator
+		Debug|iPhone = Debug|iPhone
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A43F7CFC-1492-41B3-8399-2E29C84B6007}.Debug|iPhone.ActiveCfg = Debug|iPhone
+		{A43F7CFC-1492-41B3-8399-2E29C84B6007}.Debug|iPhone.Build.0 = Debug|iPhone
+		{A43F7CFC-1492-41B3-8399-2E29C84B6007}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhoneSimulator
+		{A43F7CFC-1492-41B3-8399-2E29C84B6007}.Debug|iPhoneSimulator.Build.0 = Debug|iPhoneSimulator
+		{A43F7CFC-1492-41B3-8399-2E29C84B6007}.Release|iPhone.ActiveCfg = Release|iPhone
+		{A43F7CFC-1492-41B3-8399-2E29C84B6007}.Release|iPhone.Build.0 = Release|iPhone
+		{A43F7CFC-1492-41B3-8399-2E29C84B6007}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
+		{A43F7CFC-1492-41B3-8399-2E29C84B6007}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
+	EndGlobalSection
+EndGlobal

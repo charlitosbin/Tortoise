@@ -1,0 +1,15 @@
+﻿<Properties StartupItem="Tortoise/Tortoise.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhone6s.9.2" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Tortoise/Behaviors/TortoiseWalk.cs">
+    <Files>
+      <File FileName="Tortoise/ViewController.cs" Line="32" Column="28" />
+      <File FileName="Tortoise/Models/CoordModel.cs" Line="14" Column="15" />
+      <File FileName="Tortoise/AppDelegate.cs" Line="11" Column="30" />
+      <File FileName="Tortoise/Behaviors/TortoiseWalk.cs" Line="55" Column="4" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

@@ -9,49 +9,51 @@ namespace Tortoise.Behaviors
 	{
 		private int [] steps;
 
-		public List<CoordModel> CoordinatesMoves { get; set; }
+		public List<CoordModel> CoordinateMoves { get; set; }
 
 		public TortoiseWalk (int[] steps)
 		{
 			this.steps = steps;
 		}
 
-		public void ToirtoiseMoves()
+		public void TortoiseMoves()
 		{
-			if (CoordinatesMoves == null)
-				CoordinatesMoves = new List<CoordModel> ();
+			if (CoordinateMoves == null)
+				CoordinateMoves = new List<CoordModel> ();
 			else
-				CoordinatesMoves.Clear ();
+				CoordinateMoves.Clear ();
 			
 			if (steps != null) {
 				for(int i = 0; i < steps.Length; i++){
+					var step = steps [i];
+					var cardinatePoint = (CardinalPoints)(i % 4);
 					if (i == 0) {
-						CoordinatesMoves.Add(NextMove (null, steps [i], (CardinatesPoints)i % 4));
+						CoordinateMoves.Add(NextMove (null, step, cardinatePoint));
 					} else {
-						var previousStep = CoordinatesMoves [i - 1];
-						CoordinatesMoves.Add(NextMove (previousStep, steps [i], (CardinatesPoints)i % 4));
+						var previousStep = CoordinateMoves [i - 1];
+						CoordinateMoves.Add(NextMove (previousStep, step, cardinatePoint));
 					}
 				}
 			}
 		}
 
 		private CoordModel NextMove(CoordModel firstMove, int secondMove,
-			CardinatesPoints coordinatePoint)
+			CardinalPoints coordinatePoint)
 		{
 			CoordModel result = new CoordModel();
 
 			if (firstMove != null) {
 				switch (coordinatePoint) {
-				case CardinatesPoints.North:
+				case CardinalPoints.North:
 					firstMove.Y += secondMove;
 					break;
-				case CardinatesPoints.East:
+				case CardinalPoints.East:
 					firstMove.X += secondMove;
 					break;
-				case CardinatesPoints.South:
+				case CardinalPoints.South:
 					firstMove.Y -= secondMove;
 					break;
-				case CardinatesPoints.West:
+				case CardinalPoints.West:
 					firstMove.X -= secondMove;
 					break;
 				}

@@ -11,7 +11,7 @@ namespace Tortoise.Models
 		public CoordModel (){}
 	}
 
-	public enum CardinatesPoints{
+	public enum CardinalPoints{
 		North,
 		East,
 		South,

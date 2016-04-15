@@ -1,6 +1,7 @@
 ﻿using System;
 
 using UIKit;
+using Tortoise.Behaviors;
 
 
 
@@ -9,7 +10,8 @@ namespace Tortoise
 	public partial class ViewController : UIViewController
 	{
 
-		private int [] StepsArray;
+		private int [] stepsArray;
+		TortoiseWalk tortoise;
 
 		public ViewController (IntPtr handle) : base (handle)
 		{
@@ -19,17 +21,13 @@ namespace Tortoise
 		{
 			base.ViewDidLoad ();
 			InitializeVariables ();
-		}
-
-		public override void DidReceiveMemoryWarning ()
-		{
-			base.DidReceiveMemoryWarning ();
-			// Release any cached data, images, etc that aren't in use.
+			tortoise.TortoiseMoves ();
 		}
 
 		private void InitializeVariables()
 		{
-			StepsArray = new int[0, 1, 3, 2, 5, 4, 4, 6, 3, 2];
+			stepsArray = new int[] {0, 1, 3, 2, 5, 4, 4, 6, 3, 2};
+			tortoise = new TortoiseWalk (stepsArray);
 				
 		}
 	}

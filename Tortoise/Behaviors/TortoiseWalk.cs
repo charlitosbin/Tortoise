@@ -18,51 +18,68 @@ namespace Tortoise.Behaviors
 
 		public void TortoiseMoves()
 		{
-			if (CoordinateMoves == null)
-				CoordinateMoves = new List<CoordModel> ();
-			else
-				CoordinateMoves.Clear ();
-			
+			InitializeCoordinatesMoves ();
+
 			if (steps != null) {
 				for(int i = 0; i < steps.Length; i++){
 					var step = steps [i];
 					var cardinatePoint = (CardinalPoints)(i % 4);
-					if (i == 0) {
-						CoordinateMoves.Add(NextMove (null, step, cardinatePoint));
-					} else {
-						var previousStep = CoordinateMoves [i - 1];
-						CoordinateMoves.Add(NextMove (previousStep, step, cardinatePoint));
-					}
+					var previousStep = CoordinateMoves [i];
+
+					var move = (NextMove (previousStep, step, cardinatePoint));
+					CoordinateMoves.Add (move);
 				}
 			}
+		}
+
+		public override string ToString ()
+		{
+			if (CoordinateMoves != null) {
+			} else {
+				return "Oops you are a smart guy,trying to break the rules";
+			}
+		}
+
+		private void InitializeCoordinatesMoves()
+		{
+			if (CoordinateMoves == null)
+				CoordinateMoves = new List<CoordModel> ();
+			else
+				CoordinateMoves.Clear ();
+
+			CoordinateMoves.Add (new CoordModel {
+				X = 0,
+				Y = 0
+			});
 		}
 
 		private CoordModel NextMove(CoordModel firstMove, int secondMove,
 			CardinalPoints coordinatePoint)
 		{
-			CoordModel result = new CoordModel();
+			CoordModel result = new CoordModel ();
 
 			if (firstMove != null) {
 				switch (coordinatePoint) {
 				case CardinalPoints.North:
-					firstMove.Y += secondMove;
+					result.Y = (firstMove.Y + secondMove);
+					result.X = firstMove.X;
 					break;
 				case CardinalPoints.East:
-					firstMove.X += secondMove;
+					result.X = (firstMove.X + secondMove);
+					result.Y = firstMove.Y;
 					break;
 				case CardinalPoints.South:
-					firstMove.Y -= secondMove;
+					result.Y = (firstMove.Y - secondMove);
+					result.X = firstMove.X;
 					break;
 				case CardinalPoints.West:
-					firstMove.X -= secondMove;
+					result.X = (firstMove.X - secondMove);
+					result.Y = firstMove.Y;
 					break;
 				}
-			} else {
-				result.X = 0;
-				result.Y = 0;
 			}
-
-			return result;
+				
+			return  result;
 		}
 	}
 }

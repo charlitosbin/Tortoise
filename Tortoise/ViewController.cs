@@ -26,7 +26,7 @@ namespace Tortoise
 
 		private void InitializeVariables()
 		{
-			stepsArray = new int[] {0, 1, 3, 2, 5, 4, 4, 6, 3, 2};
+			stepsArray = new int[] {1, 3, 2, 5, 4, 4, 6, 3, 2};
 			tortoise = new TortoiseWalk (stepsArray);
 				
 		}

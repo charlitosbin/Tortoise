@@ -36,7 +36,7 @@ namespace Tortoise.Behaviors
 
 		public override string ToString ()
 		{
-			StringBuilder str = new StringBuilder ("\n");
+			StringBuilder str = new StringBuilder ("\n\n");
 
 			if (CoordinateMoves != null) {
 				for (int i = 1; i < CoordinateMoves.Count; i++) {
@@ -79,7 +79,6 @@ namespace Tortoise.Behaviors
 
 			return str.Append(string.Format(moveString + stepString, move, step, cardinale.ToString())).ToString();
 
-			
 		}
 
 		private string GetStepString(CoordModel coordModel)

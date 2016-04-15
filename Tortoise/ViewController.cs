@@ -22,6 +22,7 @@ namespace Tortoise
 			base.ViewDidLoad ();
 			InitializeVariables ();
 			tortoise.TortoiseMoves ();
+			Console.WriteLine (tortoise.ToString ());
 		}
 
 		private void InitializeVariables()

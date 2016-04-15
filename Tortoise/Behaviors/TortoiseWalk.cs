@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Text;
 using System.Collections.Generic;
 
 using Tortoise.Models;
+
 
 namespace Tortoise.Behaviors
 {
@@ -34,10 +36,55 @@ namespace Tortoise.Behaviors
 
 		public override string ToString ()
 		{
+			StringBuilder str = new StringBuilder ("\n");
+
 			if (CoordinateMoves != null) {
+				for (int i = 1; i < CoordinateMoves.Count; i++) {
+					var previousCoord = CoordinateMoves [i - 1];
+					var currentCoord = CoordinateMoves [i];
+
+					str.Append(GetStepString(previousCoord));
+					str.Append (" -> ");
+					str.Append (GetStepString (currentCoord));
+					str.Append ("   ");
+					str.Append (GetStepNumberAndDirection (i, steps [i-1], (CardinalPoints)((i-1) % 4)));
+					str.Append ("\n");
+				}
+
+				return str.ToString ();
 			} else {
 				return "Oops you are a smart guy,trying to break the rules";
 			}
+		}
+
+		private string GetStepNumberAndDirection(int move, int step, CardinalPoints cardinale)
+		{
+			StringBuilder str = new StringBuilder ();
+			var moveString = "";
+			var stepString = "";
+
+			if (move == 1) {
+				moveString = "{0}st move, ";
+			} else if (move == 2) {
+				moveString = "{0}nd move, ";
+			} else if (move > 2) {
+				moveString = "{0}th move, ";
+			}
+
+			if (step == 1) {
+				stepString = "{1} step {2}";
+			} else {
+				stepString = "{1} steps {2}";
+			}
+
+			return str.Append(string.Format(moveString + stepString, move, step, cardinale.ToString())).ToString();
+
+			
+		}
+
+		private string GetStepString(CoordModel coordModel)
+		{
+			return string.Format ("({0},{1})",coordModel.X, coordModel.Y);
 		}
 
 		private void InitializeCoordinatesMoves()

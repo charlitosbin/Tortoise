@@ -9,6 +9,8 @@ namespace Tortoise.Behaviors
 	{
 		private int [] steps;
 
+		public List<CoordModel> CoordinatesMoves { get; set; }
+
 		public TortoiseWalk (int[] steps)
 		{
 			this.steps = steps;
@@ -16,12 +18,18 @@ namespace Tortoise.Behaviors
 
 		public void ToirtoiseMoves()
 		{
-			List<CoordModel> coordinatesMoves = new List<CoordModel> ();
+			if (CoordinatesMoves == null)
+				CoordinatesMoves = new List<CoordModel> ();
+			else
+				CoordinatesMoves.Clear ();
+			
 			if (steps != null) {
 				for(int i = 0; i < steps.Length; i++){
 					if (i == 0) {
-						coordinatesMoves.Add(coordinatesMoves(NextMove (null, steps [0], (CardinatesPoints)i % 4)));
+						CoordinatesMoves.Add(NextMove (null, steps [i], (CardinatesPoints)i % 4));
 					} else {
+						var previousStep = CoordinatesMoves [i - 1];
+						CoordinatesMoves.Add(NextMove (previousStep, steps [i], (CardinatesPoints)i % 4));
 					}
 				}
 			}
@@ -51,6 +59,7 @@ namespace Tortoise.Behaviors
 				result.X = 0;
 				result.Y = 0;
 			}
+
 			return result;
 		}
 	}
